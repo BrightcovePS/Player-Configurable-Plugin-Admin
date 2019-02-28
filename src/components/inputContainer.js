@@ -40,6 +40,7 @@ class InputContainer extends Component {
     this.fieldName = props.fieldName;
     this.size = props.size;
     this.value = props.value;
+    this.disabled = props.disabled;
   }
   
   componentDidUpdate() {
@@ -50,7 +51,7 @@ class InputContainer extends Component {
     return (
       <InputContainerDiv>
         <InputLabel fieldId={this.fieldId}>{this.fieldName}</InputLabel>
-        <InputField fieldId={this.fieldId} size={this.size} value={this.value} disabled/>
+        <InputField fieldId={this.fieldId} size={this.size} value={this.value} disabled={this.disabled}/>
       </InputContainerDiv>
     );
   }

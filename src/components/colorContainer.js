@@ -37,7 +37,10 @@ class ColorContainer extends Component {
   render() {
     return (
       <div className="color-container">
-        <InputContainer fieldId="color" fieldName="Theme Color" value={ this.props.colorSelection.color }/>
+        <InputContainer fieldId="color" fieldName="Theme Color" 
+        value={ this.props.colorSelection.color }
+        disabled={ true }
+        />
         <ColorPreviewBlock color={ this.props.colorSelection.color } />
         <Button onClick={ this.handleColorButtonPress } position="relative" left="-5.4rem">
         Choose Color
