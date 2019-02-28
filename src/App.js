@@ -1,14 +1,16 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import GenerateConfig from "./lib/configGenerator";
 import styled, { css } from "styled-components";
 import Button from "./components/button";
 import InputContainer from "./components/inputContainer";
 import ColorContainer from "./components/colorContainer";
 import Heading from "./components/heading";
 
-const PreviewButton = ({ ...props }) => {
+const PreviewButton = ({ configs, ...props }) => {
   return (
     <Button onClick={() => {
-      console.info("Previewing.");  
+      GenerateConfig(configs);  
       }} {...props}>Preview</Button>
   )
 };
@@ -27,10 +29,14 @@ class App extends Component {
         <InputContainer fieldId="icon" fieldName="Video Icon URL"/>
         <InputContainer fieldId="sprite" fieldName="Sprite Icon URL"/>
         <ColorContainer />
-        <PreviewButton />
+        <PreviewButton configs={ this.props.state } />
       </AppDiv>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return { state };
+};
+
+export default connect(mapStateToProps)(App);
