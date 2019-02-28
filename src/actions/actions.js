@@ -12,3 +12,4 @@ function makeActionCreator(type, ...argNames) {
 
 export const toggleColorPicker = makeActionCreator(ActionTypes.TOGGLE_COLORPICKER);
 export const selectColorComplete = makeActionCreator(ActionTypes.SELECT_COLOR_COMPLETE, "color");
+export const enterText = makeActionCreator(ActionTypes.ENTER_TEXT, "fieldId", "text");

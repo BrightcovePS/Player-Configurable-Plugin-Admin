@@ -11,6 +11,7 @@ const StyledButton = styled.button`
   position: ${props => props.position};
   left: ${props => props.left};
   top: ${props => props.top};
+  cursor: pointer;
   :focus {
     outline: none;
   }

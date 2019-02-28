@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { enterText } from "../actions/actions";
 import styled, { css } from "styled-components";
 
 const InputLabel = styled.label.attrs(({ fieldId }) => ({
@@ -43,6 +45,11 @@ class InputContainer extends Component {
     this.disabled = props.disabled;
   }
   
+  handleInputChange(e) {
+    e.persist();
+    this.props.enterText(this.fieldId, e.target.value);
+  }
+  
   componentDidUpdate() {
     this.value = this.props.value;
   }
@@ -51,10 +58,11 @@ class InputContainer extends Component {
     return (
       <InputContainerDiv>
         <InputLabel fieldId={this.fieldId}>{this.fieldName}</InputLabel>
-        <InputField fieldId={this.fieldId} size={this.size} value={this.value} disabled={this.disabled}/>
+        <InputField fieldId={this.fieldId} size={this.size} 
+        value={this.value} onChange={(e) => { this.handleInputChange(e) }} disabled={this.disabled}/>
       </InputContainerDiv>
     );
   }
 }
 
-export default InputContainer;
+export default connect(null, { enterText })(InputContainer);
