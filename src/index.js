@@ -1,13 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import Admin from "./pages/admin";
+import Preview from "./pages/preview";
 import { Provider } from "react-redux";
 import store from "./store";
+import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
+
+const Routing = ({ ...props }) => {
+  return (
+    <Router>
+      <div>
+        <Route exact path="/" component={Admin} />
+        <Route path="/preview" component={Preview} />
+      </div>
+    </Router>
+  )
+};
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Routing />
   </Provider>, 
   document.getElementById("root")
 );

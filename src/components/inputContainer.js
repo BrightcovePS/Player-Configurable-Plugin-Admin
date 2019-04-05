@@ -6,9 +6,10 @@ import styled, { css } from "styled-components";
 const InputLabel = styled.label.attrs(({ fieldId }) => ({
   htmlFor: fieldId
 }))`
-  font-size: 2rem;
+  font-size: 1.2rem;
   width: 20rem;
   display: inline-block;
+  text-align: left;
 `;
 
 const InputField = styled.input.attrs(({ fieldId, size }) => ({
@@ -41,17 +42,24 @@ class InputContainer extends Component {
     this.fieldId = props.fieldId;
     this.fieldName = props.fieldName;
     this.size = props.size;
-    this.value = props.value;
     this.disabled = props.disabled;
+    this.state = {
+      value: props.value
+    }
+  }
+  
+  componentDidMount() {
+    this.props.enterText(this.fieldId, this.state.value);
   }
   
   handleInputChange(e) {
     e.persist();
+    this.setState({ value: e.target.value })
     this.props.enterText(this.fieldId, e.target.value);
   }
   
-  componentDidUpdate() {
-    this.value = this.props.value;
+  componentWillUpdate(nextProps) {
+    this.value = nextProps.value;
   }
   
   render() {
@@ -59,10 +67,15 @@ class InputContainer extends Component {
       <InputContainerDiv>
         <InputLabel fieldId={this.fieldId}>{this.fieldName}</InputLabel>
         <InputField fieldId={this.fieldId} size={this.size} 
-        value={this.value} onChange={(e) => { this.handleInputChange(e) }} disabled={this.disabled}/>
+        value={this.state.value} onChange={(e) => { this.handleInputChange(e) }} disabled={this.disabled}/>
       </InputContainerDiv>
     );
   }
 }
 
-export default connect(null, { enterText })(InputContainer);
+const mapStateToProps = state => {
+  const { colorSelection } = state;
+  return { colorSelection };
+};
+
+export default connect(mapStateToProps, { enterText })(InputContainer);

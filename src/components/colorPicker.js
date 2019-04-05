@@ -6,7 +6,7 @@ import styled, { css } from "styled-components";
 
 const ColorPickerWrapper = styled.div`
   position: absolute;
-  top: 1rem;
+  top: 48rem;
   left: 36rem;
   display: ${props => {
       if (props.pickerState && props.pickerState.opened) return "block"
@@ -21,7 +21,7 @@ class ColorPicker extends React.Component {
   
   handleChangeComplete = (color) => {
     this.setState({ background: color.hex });
-    this.props.handleChangeComplete(color);
+    this.props.handleChangeComplete(this.props.colorSelection.fieldId, color);
   }
 
   render() {

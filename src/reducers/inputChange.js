@@ -1,17 +1,24 @@
 import ActionTypes from "../actions/actionTypes";
 
 const initialState = {
-  fieldId: "",
-  text: ""
+  inputs: []
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case ActionTypes.ENTER_TEXT:
-      return Object.assign({}, state, {
+      let newState = Object.assign({}, state);
+      for (let i = 0; i < newState.inputs.length; i ++) {
+        if (newState.inputs[i].fieldId === action.fieldId) {
+          newState.inputs[i].val = action.val;
+          return newState;
+        }
+      }
+      newState.inputs.push({
         fieldId: action.fieldId,
-        text: action.text
-      });
+        val: action.val
+      })
+      return newState;
       break;
     default:
       return state;
