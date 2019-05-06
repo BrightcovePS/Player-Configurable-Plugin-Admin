@@ -58,8 +58,11 @@ class InputContainer extends Component {
     this.props.enterText(this.fieldId, e.target.value);
   }
   
-  componentWillUpdate(nextProps) {
-    this.value = nextProps.value;
+  componentWillReceiveProps(nextProps, nextState) {
+    this.setState({
+      value: nextProps.value
+    })
+    this.props.enterText(this.fieldId, nextProps.value);
   }
   
   render() {

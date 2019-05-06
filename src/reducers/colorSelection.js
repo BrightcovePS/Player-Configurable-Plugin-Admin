@@ -2,7 +2,7 @@ import ActionTypes from "../actions/actionTypes";
 
 const initialState = {
   fieldId: "color",
-  color: "#7ed321",
+  color: "#000000",
   opened: false
 };
 
