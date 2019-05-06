@@ -8,7 +8,7 @@ import VideoPlayerContainer from "../components/videoPlayer";
 
 const GenerateButton = ({ pluginURL, ...props }) => {
   return (
-    <Button as="a" href={pluginURL} download {...props}>Get Plugin</Button>
+    <Button as="a" href={pluginURL} download {...props}>Download Plugin</Button>
   )
 };
 
