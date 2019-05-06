@@ -12,6 +12,7 @@ const StyledButton = styled.button`
   left: ${props => props.left};
   top: ${props => props.top};
   cursor: pointer;
+  text-decoration: none;
   :focus {
     outline: none;
   }
