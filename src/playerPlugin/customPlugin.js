@@ -21,7 +21,7 @@ v1.0.0: {05/06/2019}
 "use strict";
 
 // replace name of plugin, then proceed to constructor function
-var NAME = "CustomPlugin",
+var NAME = typeof predefinedConfig !== "undefined" ? predefinedConfig.pluginName : "CustomPlugin",
 
   /**
    * Constructor function for plugin. Place all code within.

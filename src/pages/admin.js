@@ -27,6 +27,7 @@ const AppDiv = styled.div.attrs(({}) => ({
 
 const config = {
   jQuery: "1.7.2",
+  pluginName: "CustomPlugin",
   accountId: "79558313",
   playBarLogo: "https://tracking.logobar.tv/uploads/25/1471371229.gif",
   playBarLogoHeight: 2,
@@ -48,6 +49,7 @@ class App extends Component {
       <AppDiv>
         <Heading h2 center>Player Plugin Admin</Heading>
         <Panel className="config-panel" title="Configurations">
+          <InputContainer fieldId="pluginName" fieldName="Plugin Name" value={config.pluginName} description="No Space Allowed" />
           <InputContainer fieldId="accountId" fieldName="Account ID" value={config.accountId} />
           <InputContainer fieldId="playerId" fieldName="Player ID" value={config.playerId} />
           <InputContainer fieldId="videoId" fieldName="Video ID" value={config.videoId} />
