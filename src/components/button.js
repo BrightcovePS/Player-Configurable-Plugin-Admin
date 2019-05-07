@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "@brightcove/studio-components";
 import styled, { css } from "styled-components";
 
 const StyledButton = styled.button`
@@ -22,10 +23,12 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({ ...props }) => {
+const BCButton = ({ name, onClick, ...props }) => {
   return (
-    <StyledButton {...props}></StyledButton>
+    <Button onClick={onClick} {...props} >
+      {name}
+    </Button>
   )
 }
 
-export default Button;
+export default BCButton;

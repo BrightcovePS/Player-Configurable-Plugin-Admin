@@ -6,8 +6,8 @@ import styled, { css } from "styled-components";
 
 const ColorPickerWrapper = styled.div`
   position: absolute;
-  top: 48rem;
-  left: 36rem;
+  top: 65rem;
+  left: 1rem;
   display: ${props => {
       if (props.pickerState && props.pickerState.opened) return "block"
       return "none"
