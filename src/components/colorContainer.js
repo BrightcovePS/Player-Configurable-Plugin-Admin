@@ -8,12 +8,12 @@ import styled, { css } from "styled-components";
 
 const ColorPreviewBlock = styled.div`
   display: inline-block;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background-color: ${props => props.color};
   position: relative;
-  top: -4rem;
-  left: 32rem;
+  top: -3.2rem;
+  left: 33.4rem;
   border-radius: 3px;
 }
 `;
@@ -41,10 +41,8 @@ class ColorContainer extends Component {
         value={ this.props.colorSelection.color }
         disabled={ true }
         />
+        <Button onClick={ this.handleColorButtonPress } name="Choose Color" />
         <ColorPreviewBlock color={ this.props.colorSelection.color } />
-        <Button onClick={ this.handleColorButtonPress } position="relative" left="-5.4rem">
-        Choose Color
-        </Button>
         <ColorPicker handleChangeComplete={ this.handleColorChangeComplete }/>
       </div>
     );

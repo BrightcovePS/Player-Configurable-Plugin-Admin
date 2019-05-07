@@ -8,7 +8,7 @@ import VideoPlayerContainer from "../components/videoPlayer";
 
 const GenerateButton = ({ pluginURL, ...props }) => {
   return (
-    <Button as="a" href={pluginURL} download {...props}>Download Plugin</Button>
+    <Button as="a" href={pluginURL} name="Download Plugin" download {...props} />
   )
 };
 
@@ -43,7 +43,7 @@ class Preview extends Component {
         <Heading h2 center>Preview</Heading>
         <VideoPlayerContainer fieldId="preview-player" videoId={ this.videoId } accountId={ this.accountId }
             playerId={ this.playerId } configs={ this.props.configs }></VideoPlayerContainer>
-          <GenerateButton pluginURL={this.state.pluginURL} top={"20px"} position={"relative"} />
+          <GenerateButton pluginURL={this.state.pluginURL} style={{"top": "2rem"}} />
      </div>
     );
   }
