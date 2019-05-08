@@ -47,7 +47,7 @@ class InputContainer extends Component {
           value={this.state.value}
           onChange={(e) => { this.handleInputChange(e) }}
           disabled={this.disabled}
-          {...this.props}
+          description={this.props.description}
         />
       </InputContainerDiv>
     );
